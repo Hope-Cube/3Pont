@@ -10,6 +10,7 @@ namespace _3Pont
     {
         static void Main(string[] args)
         {
+            Morse morse = new Morse(12);
             Morse.Chars.A.Sound.Invoke();
 
         }

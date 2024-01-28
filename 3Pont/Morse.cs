@@ -6,27 +6,34 @@ namespace _3Pont
 {
     internal class Morse
     {
+        private static int _unit;
+
+        public Morse(double wpm)
+        {
+            _unit = Convert.ToInt32(60 / (50 * wpm) * 1000);
+        }
+
         public class Chars
         {
             static private void SB()
             {
-                Sleep(100);
+                Sleep(_unit);
             }
             static private void WB()
             {
-                Sleep(300);
+                Sleep(3*_unit);
             }
             static private void LB()
             {
-                Sleep(700);
+                Sleep(7*_unit);
             }
             static private void Ti()
             {
-                Beep(700, 100);
+                Beep(700, _unit);
             }
             static private void Ta()
             {
-                Beep(700, 300);
+                Beep(700, 3*_unit);
             }
 
             public class A //A   · –
