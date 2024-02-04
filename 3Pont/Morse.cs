@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using static _3Pont.Morse.Chars;
 using static System.Console;
 using static System.Threading.Thread;
 
@@ -7,25 +9,283 @@ namespace _3Pont
     internal class Morse
     {
         private static int _unit;
-
+        public List<string> _textList;
+        public List<Action> _soundList;
         public Morse(double wpm)
         {
             _unit = Convert.ToInt32(60 / (50 * wpm) * 1000);
         }
-
+        public string DecodeT(string s)
+        {
+            _textList = new List<string>();
+            foreach (char c in s.ToUpper())
+            {
+                switch (c)
+                {
+                    case ' ':
+                        _textList.Add("   ");
+                        break;
+                    case '.':
+                        _textList.Add("       ");
+                        break;
+                    case 'A':
+                        _textList.Add(A.Text);
+                        break;
+                    case 'B':
+                        _textList.Add(B.Text);
+                        break;
+                    case 'C':
+                        _textList.Add(C.Text);
+                        break;
+                    case 'D':
+                        _textList.Add(D.Text);
+                        break;
+                    case 'E':
+                        _textList.Add(E.Text);
+                        break;
+                    case 'F':
+                        _textList.Add(F.Text);
+                        break;
+                    case 'G':
+                        _textList.Add(G.Text);
+                        break;
+                    case 'H':
+                        _textList.Add(H.Text);
+                        break;
+                    case 'I':
+                        _textList.Add(I.Text);
+                        break;
+                    case 'J':
+                        _textList.Add(J.Text);
+                        break;
+                    case 'K':
+                        _textList.Add(K.Text);
+                        break;
+                    case 'L':
+                        _textList.Add(L.Text);
+                        break;
+                    case 'M':
+                        _textList.Add(M.Text);
+                        break;
+                    case 'N':
+                        _textList.Add(N.Text);
+                        break;
+                    case 'O':
+                        _textList.Add(O.Text);
+                        break;
+                    case 'P':
+                        _textList.Add(P.Text);
+                        break;
+                    case 'Q':
+                        _textList.Add(Q.Text);
+                        break;
+                    case 'R':
+                        _textList.Add(R.Text);
+                        break;
+                    case 'S':
+                        _textList.Add(S.Text);
+                        break;
+                    case 'T':
+                        _textList.Add(T.Text);
+                        break;
+                    case 'U':
+                        _textList.Add(U.Text);
+                        break;
+                    case 'V':
+                        _textList.Add(V.Text);
+                        break;
+                    case 'W':
+                        _textList.Add(W.Text);
+                        break;
+                    case 'X':
+                        _textList.Add(X.Text);
+                        break;
+                    case 'Y':
+                        _textList.Add(Y.Text);
+                        break;
+                    case 'Z':
+                        _textList.Add(Z.Text);
+                        break;
+                    case '0':
+                        _textList.Add(Zero.Text);
+                        break;
+                    case '1':
+                        _textList.Add(One.Text);
+                        break;
+                    case '2':
+                        _textList.Add(Two.Text);
+                        break;
+                    case '3':
+                        _textList.Add(Three.Text);
+                        break;
+                    case '4':
+                        _textList.Add(Four.Text);
+                        break;
+                    case '5':
+                        _textList.Add(Five.Text);
+                        break;
+                    case '6':
+                        _textList.Add(Six.Text);
+                        break;
+                    case '7':
+                        _textList.Add(Seven.Text);
+                        break;
+                    case '8':
+                        _textList.Add(Eight.Text);
+                        break;
+                    case '9':
+                        _textList.Add(Nine.Text);
+                        break;
+                }
+            }
+            string eh = "";
+            foreach (var item in _textList)
+            {
+                eh += item;
+            }
+            return eh;
+        }
+        public void DecodeS(string s)
+        {
+            _soundList = new List<Action>();
+            foreach (char c in s.ToUpper())
+            {
+                switch (c)
+                {
+                    case ' ':
+                        _soundList.Add(() => WB());
+                        break;
+                    case '.':
+                        _soundList.Add(() => LB());
+                        break;
+                    case 'A':
+                        _soundList.Add(A.Sound);
+                        break;
+                    case 'B':
+                        _soundList.Add(B.Sound);
+                        break;
+                    case 'C':
+                        _soundList.Add(C.Sound);
+                        break;
+                    case 'D':
+                        _soundList.Add(D.Sound);
+                        break;
+                    case 'E':
+                        _soundList.Add(E.Sound);
+                        break;
+                    case 'F':
+                        _soundList.Add(F.Sound);
+                        break;
+                    case 'G':
+                        _soundList.Add(G.Sound);
+                        break;
+                    case 'H':
+                        _soundList.Add(H.Sound);
+                        break;
+                    case 'I':
+                        _soundList.Add(I.Sound);
+                        break;
+                    case 'J':
+                        _soundList.Add(J.Sound);
+                        break;
+                    case 'K':
+                        _soundList.Add(K.Sound);
+                        break;
+                    case 'L':
+                        _soundList.Add(L.Sound);
+                        break;
+                    case 'M':
+                        _soundList.Add(M.Sound);
+                        break;
+                    case 'N':
+                        _soundList.Add(N.Sound);
+                        break;
+                    case 'O':
+                        _soundList.Add(O.Sound);
+                        break;
+                    case 'P':
+                        _soundList.Add(P.Sound);
+                        break;
+                    case 'Q':
+                        _soundList.Add(Q.Sound);
+                        break;
+                    case 'R':
+                        _soundList.Add(R.Sound);
+                        break;
+                    case 'S':
+                        _soundList.Add(S.Sound);
+                        break;
+                    case 'T':
+                        _soundList.Add(T.Sound);
+                        break;
+                    case 'U':
+                        _soundList.Add(U.Sound);
+                        break;
+                    case 'V':
+                        _soundList.Add(V.Sound);
+                        break;
+                    case 'W':
+                        _soundList.Add(W.Sound);
+                        break;
+                    case 'X':
+                        _soundList.Add(X.Sound);
+                        break;
+                    case 'Y':
+                        _soundList.Add(Y.Sound);
+                        break;
+                    case 'Z':
+                        _soundList.Add(Z.Sound);
+                        break;
+                    case '0':
+                        _soundList.Add(Zero.Sound);
+                        break;
+                    case '1':
+                        _soundList.Add(One.Sound);
+                        break;
+                    case '2':
+                        _soundList.Add(Two.Sound);
+                        break;
+                    case '3':
+                        _soundList.Add(Three.Sound);
+                        break;
+                    case '4':
+                        _soundList.Add(Four.Sound);
+                        break;
+                    case '5':
+                        _soundList.Add(Five.Sound);
+                        break;
+                    case '6':
+                        _soundList.Add(Six.Sound);
+                        break;
+                    case '7':
+                        _soundList.Add(Seven.Sound);
+                        break;
+                    case '8':
+                        _soundList.Add(Eight.Sound);
+                        break;
+                    case '9':
+                        _soundList.Add(Nine.Sound);
+                        break;
+                }
+            }
+            foreach (var item in _soundList)
+            {
+                item.Invoke();
+            }
+        }
         public class Chars
         {
             static private void SB()
             {
                 Sleep(_unit);
             }
-            static private void WB()
+            static internal void WB()
             {
-                Sleep(3*_unit);
+                Sleep(3 * _unit);
             }
-            static private void LB()
+            static internal void LB()
             {
-                Sleep(7*_unit);
+                Sleep(7 * _unit);
             }
             static private void Ti()
             {
@@ -33,189 +293,223 @@ namespace _3Pont
             }
             static private void Ta()
             {
-                Beep(700, 3*_unit);
+                Beep(700, 3 * _unit);
             }
-
-            public class A //A   · –
+            public class A
             {
-                public string Text => "· –";
-                static public Action Sound => () => { Ti(); SB(); Ta(); };
+                public char Character => 'A';
+                public static string Text => "° –";
+                public static Action Sound => () => { Ti(); SB(); Ta(); };
             }
-            public class B //B	– · · ·
+            public class B
             {
-                public string Text => "– · · ·";
-                static public Action Sound => () => { Ta(); SB(); Ti(); SB(); Ti(); SB(); Ti(); };
+                public char Character => 'B';
+                public static string Text => "– ° ° °";
+                public static Action Sound => () => { Ta(); SB(); Ti(); SB(); Ti(); SB(); Ti(); };
             }
-            public class C //C	– · – ·
+            public class C
             {
-                public string Text => "– · – ·";
-                static public Action Sound => () => { Ta(); SB(); Ti(); SB(); Ta(); SB(); Ti(); };
+                public char Character => 'C';
+                public static string Text => "– ° – °";
+                public static Action Sound => () => { Ta(); SB(); Ti(); SB(); Ta(); SB(); Ti(); };
             }
-            public class D //D	– · ·
+            public class D
             {
-                public string Text => "– · ·";
-                static public Action Sound => () => { Beep(700, 100); SB(); Beep(700, 300); };
+                public char Character => 'D';
+                public static string Text => "– ° °";
+                public static Action Sound => () => { Ta(); SB(); Ti(); SB(); Ti(); };
             }
-            public class E //E	·
+            public class E
             {
-                public string Text => "·";
-                static public Action Sound => () => { Beep(700, 100); SB(); Beep(700, 300); };
+                public char Character => 'E';
+                public static string Text => "°";
+                public static Action Sound => () => { Ti(); };
             }
-            public class F //F	· · – ·
+            public class F
             {
-                public string Text => "· · – ·";
-                static public Action Sound => () => { Beep(700, 100); SB(); Beep(700, 300); };
+                public char Character => 'F';
+                public static string Text => "° ° – °";
+                public static Action Sound => () => { Ti(); SB(); Ti(); SB(); Ta(); SB(); Ti(); };
             }
-            public class G //G	– – ·
+            public class G
             {
-                public string Text => "– – ·";
-                static public Action Sound => () => { Beep(700, 100); SB(); Beep(700, 300); };
+                public char Character => 'G';
+                public static string Text => "– – °";
+                public static Action Sound => () => { Ta(); SB(); Ta(); SB(); Ti(); };
             }
-            public class H //H	· · · ·
+            public class H
             {
-                public string Text => "· · · ·";
-                static public Action Sound => () => { Beep(700, 100); SB(); Beep(700, 300); };
+                public char Character => 'H';
+                public static string Text => "° ° ° °";
+                public static Action Sound => () => { Ti(); SB(); Ti(); SB(); Ti(); SB(); Ti(); };
             }
-            public class I //I	· ·
+            public class I
             {
-                public string Text => "· ·";
-                static public Action Sound => () => { Beep(700, 100); SB(); Beep(700, 300); };
+                public char Character => 'I';
+                public static string Text => "° °";
+                public static Action Sound => () => { Ti(); SB(); Ti(); };
             }
-            public class J //J	· – – –
+            public class J
             {
-                public string Text => "· – – –";
-                static public Action Sound => () => { Beep(700, 100); SB(); Beep(700, 300); };
+                public char Character => 'J';
+                public static string Text => "° – – –";
+                public static Action Sound => () => { Ti(); SB(); Ta(); SB(); Ta(); SB(); Ta(); };
             }
-            public class K //K	– · –
+            public class K
             {
-                public string Text => "– · –";
-                static public Action Sound => () => { Beep(700, 100); SB(); Beep(700, 300); };
+                public char Character => 'K';
+                public static string Text => "– ° –";
+                public static Action Sound => () => { Ta(); SB(); Ti(); SB(); Ta(); };
             }
-            public class L //L	· – · ·
+            public class L
             {
-                public string Text => "· – · ·";
-                static public Action Sound => () => { Beep(700, 100); SB(); Beep(700, 300); };
+                public char Character => 'L';
+                public static string Text => "° – ° °";
+                public static Action Sound => () => { Ti(); SB(); Ta(); SB(); Ti(); SB(); Ti(); };
             }
-            public class M //M	– –
+            public class M
             {
-                public string Text => "– –";
-                static public Action Sound => () => { Beep(700, 100); SB(); Beep(700, 300); };
+                public char Character => 'M';
+                public static string Text => "– –";
+                public static Action Sound => () => { Ta(); SB(); Ta(); };
             }
-            public class N //N	– ·
+            public class N
             {
-                public string Text => "– ·";
-                static public Action Sound => () => { Beep(700, 100); SB(); Beep(700, 300); };
+                public char Character => 'N';
+                public static string Text => "– °";
+                public static Action Sound => () => { Ta(); SB(); Ti(); };
             }
-            public class O //O	– – –
+            public class O
             {
-                public string Text => "– – –";
-                static public Action Sound => () => { Beep(700, 100); SB(); Beep(700, 300); };
+                public char Character => 'O';
+                public static string Text => "– – –";
+                public static Action Sound => () => { Ta(); SB(); Ta(); SB(); Ta(); };
             }
-            public class P //P	· – – ·
+            public class P
             {
-                public string Text => "· – – ·";
-                static public Action Sound => () => { Beep(700, 100); SB(); Beep(700, 300); };
+                public char Character => 'P';
+                public static string Text => "° – – °";
+                public static Action Sound => () => { Ti(); SB(); Ta(); SB(); Ta(); SB(); Ti(); };
             }
-            public class Q //Q	– – · –
+            public class Q
             {
-                public string Text => "– – · –";
-                static public Action Sound => () => { Beep(700, 100); SB(); Beep(700, 300); };
+                public char Character => 'Q';
+                public static string Text => "– – ° –";
+                public static Action Sound => () => { Ta(); SB(); Ta(); SB(); Ti(); SB(); Ta(); };
             }
-            public class R //R	· – ·
+            public class R
             {
-                public string Text => "· – ·";
-                static public Action Sound => () => { Beep(700, 100); SB(); Beep(700, 300); };
+                public char Character => 'R';
+                public static string Text => "° – °";
+                public static Action Sound => () => { Ti(); SB(); Ta(); SB(); Ti(); };
             }
-            public class S //S	· · ·
+            public class S
             {
-                public string Text => "· · ·";
-                static public Action Sound => () => { Beep(700, 100); SB(); Beep(700, 300); };
+                public char Character => 'S';
+                public static string Text => "° ° °";
+                public static Action Sound => () => { Ti(); SB(); Ti(); SB(); Ti(); };
             }
-            public class T //T	–
+            public class T
             {
-                public string Text => "–";
-                static public Action Sound => () => { Beep(700, 100); SB(); Beep(700, 300); };
+                public char Character => 'T';
+                public static string Text => "–";
+                public static Action Sound => () => { Ta(); };
             }
-            public class U //U	· · –
+            public class U
             {
-                public string Text => "· · –";
-                static public Action Sound => () => { Beep(700, 100); SB(); Beep(700, 300); };
+                public char Character => 'U';
+                public static string Text => "° ° –";
+                public static Action Sound => () => { Ti(); SB(); Ti(); SB(); Ta(); };
             }
-            public class V //V	· · · –
+            public class V
             {
-                public string Text => "· · · –";
-                static public Action Sound => () => { Beep(700, 100); SB(); Beep(700, 300); };
+                public char Character => 'V';
+                public static string Text => "° ° ° –";
+                public static Action Sound => () => { Ti(); SB(); Ti(); SB(); Ti(); SB(); Ta(); };
             }
-            public class W //W	· – –
+            public class W
             {
-                public string Text => "· – –";
-                static public Action Sound => () => { Beep(700, 100); SB(); Beep(700, 300); };
+                public char Character => 'W';
+                public static string Text => "° – –";
+                public static Action Sound => () => { Ti(); SB(); Ta(); SB(); Ta(); };
             }
-            public class X //X	– · · –
+            public class X
             {
-                public string Text => "– · · –";
-                static public Action Sound => () => { Beep(700, 100); SB(); Beep(700, 300); };
+                public char Character => 'X';
+                public static string Text => "– ° ° –";
+                public static Action Sound => () => { Ta(); SB(); Ti(); SB(); Ti(); SB(); Ta(); };
             }
-            public class Y //Y	– · – –
+            public class Y
             {
-                public string Text => "– · – –";
-                static public Action Sound => () => { Beep(700, 100); SB(); Beep(700, 300); };
+                public char Character => 'Y';
+                public static string Text => "– ° – –";
+                public static Action Sound => () => { Ta(); SB(); Ti(); SB(); Ta(); SB(); Ta(); };
             }
-            public class Z //Z	– – · ·
+            public class Z
             {
-                public string Text => "– – · ·";
-                static public Action Sound => () => { Beep(700, 100); SB(); Beep(700, 300); };
+                public char Character => 'Z';
+                public static string Text => "– – ° °";
+                public static Action Sound => () => { Ta(); SB(); Ta(); SB(); Ti(); SB(); Ti(); };
             }
-
-            public class Zero //0	– – – – –
+            public class Zero
             {
-                public string Text => "– – – – –";
-                static public Action Sound => () => { Beep(700, 100); SB(); Beep(700, 300); };
+                public char Character => '0';
+                public static string Text => "– – – – –";
+                public static Action Sound => () => { Ta(); SB(); Ta(); SB(); Ta(); SB(); Ta(); SB(); Ta(); };
             }
-            public class One //1	· – – – –
+            public class One
             {
-                public string Text => "· – – – –";
-                static public Action Sound => () => { Beep(700, 100); SB(); Beep(700, 300); };
+                public char Character => '1';
+                public static string Text => "° – – – –";
+                public static Action Sound => () => { Ti(); SB(); Ta(); SB(); Ta(); SB(); Ta(); SB(); Ta(); };
             }
-            public class Two //2	· · – – –
+            public class Two
             {
-                public string Text => "· · – – –";
-                static public Action Sound => () => { Beep(700, 100); SB(); Beep(700, 300); };
+                public char Character => '2';
+                public static string Text => "° ° – – –";
+                public static Action Sound => () => { Ti(); SB(); Ti(); SB(); Ta(); SB(); Ta(); SB(); Ta(); };
             }
-            public class Three //3	· · · – –
+            public class Three
             {
-                public string Text => "· · · – –";
-                static public Action Sound => () => { Beep(700, 100); SB(); Beep(700, 300); };
+                public char Character => '3';
+                public static string Text => "° ° ° – –";
+                public static Action Sound => () => { Ti(); SB(); Ti(); SB(); Ti(); SB(); Ta(); SB(); Ta(); };
             }
-            public class Four //4	· · · · –
+            public class Four
             {
-                public string Text => "· · · · –";
-                static public Action Sound => () => { Beep(700, 100); SB(); Beep(700, 300); };
+                public char Character => '4';
+                public static string Text => "° ° ° ° –";
+                public static Action Sound => () => { Ti(); SB(); Ti(); SB(); Ti(); SB(); Ti(); SB(); Ta(); };
             }
-            public class Five //5	· · · · ·
+            public class Five
             {
-                public string Text => "· · · · ·";
-                static public Action Sound => () => { Beep(700, 100); SB(); Beep(700, 300); };
+                public char Character => '5';
+                public static string Text => "° ° ° ° °";
+                public static Action Sound => () => { Ti(); SB(); Ti(); SB(); Ti(); SB(); Ti(); SB(); Ti(); };
             }
-            public class Six //6	– · · · ·
+            public class Six
             {
-                public string Text => "– · · · ·";
-                static public Action Sound => () => { Beep(700, 100); SB(); Beep(700, 300); };
+                public char Character => '6';
+                public static string Text => "– ° ° ° °";
+                public static Action Sound => () => { Ta(); SB(); Ti(); SB(); Ti(); SB(); Ti(); SB(); Ti(); };
             }
-            public class Seven //7	– – · · ·
+            public class Seven
             {
-                public string Text => "– – · · ·";
-                static public Action Sound => () => { Beep(700, 100); SB(); Beep(700, 300); };
+                public char Character => '7';
+                public static string Text => "– – ° ° °";
+                public static Action Sound => () => { Ta(); SB(); Ta(); SB(); Ti(); SB(); Ti(); SB(); Ti(); };
             }
-            public class Eight //8	– – – · ·
+            public class Eight
             {
-                public string Text => "– – – · ·";
-                static public Action Sound => () => { Beep(700, 100); SB(); Beep(700, 300); };
+                public char Character => '8';
+                public static string Text => "– – – ° °";
+                public static Action Sound => () => { Ta(); SB(); Ta(); SB(); Ta(); SB(); Ti(); SB(); Ti(); };
             }
-            public class Nine //9	– – – – ·
+            public class Nine
             {
-                public string Text => "– – – – ·";
-                static public Action Sound => () => { Beep(700, 100); SB(); Beep(700, 300); };
+                public char Character => '9';
+                public static string Text => "– – – – °";
+                public static Action Sound => () => { Ta(); SB(); Ta(); SB(); Ta(); SB(); Ta(); SB(); Ti(); };
             }
         }
     }
