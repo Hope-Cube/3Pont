@@ -1,5 +1,4 @@
-﻿using MorseCode;
-using static System.Console;
+﻿using static System.Console;
 
 namespace _3Pont
 {
@@ -7,8 +6,8 @@ namespace _3Pont
     {
         static void Main(string[] args)
         {
-            Morse morse = new Morse(10);
-            morse.DecodeS("ABC love you");
+            Morse morse = new Morse(12);
+            WriteLine(morse.DecodeT("ABC love you"));
 
             ReadKey(true);
         }
